@@ -24,7 +24,7 @@ namespace _17_WPF
         {
             InitializeComponent();
         }
-        private void colorPicker_ColorChanged(object sender, RoutedPropertyChangedEventArgs e)
+        private void colorIndex_ColorChanged(object sender, RoutedPropertyChangedEventArgs e)
         {
             txb.Foreground = e.NewValue.ToString();
         }
