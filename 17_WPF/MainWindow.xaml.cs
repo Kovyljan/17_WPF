@@ -24,9 +24,9 @@ namespace _17_WPF
         {
             InitializeComponent();
         }
-        private void colorIndex_ColorChanged(object sender, RoutedPropertyChangedEventArgs e)
+        private void colorIndex_ColorChanged(object sender, RoutedPropertyChangedEventArgs<Color> e)
         {
-            txb.Foreground = e.NewValue.ToString();
+            txb.Foreground = new SolidColorBrush(e.NewValue);
         }
     }
 }

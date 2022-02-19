@@ -27,6 +27,10 @@ namespace _17_WPF
 
         private static readonly RoutedEvent ColorChangedEvent;
 
+        public ColorIndex()
+        {
+            InitializeComponent();
+        }
         static ColorIndex()
         {
             // Регистрация свойств зависимости
@@ -86,16 +90,20 @@ namespace _17_WPF
             colorindex.Red = newColor.R;
             colorindex.Green = newColor.G;
             colorindex.Blue = newColor.B;
+
+            RoutedPropertyChangedEventArgs<Color> args = new RoutedPropertyChangedEventArgs<Color>(colorindex.Color, newColor);
+            args.RoutedEvent = ColorChangedEvent;
+            colorindex.RaiseEvent(args);
         }
 
-       
-        
+
+
 
         public event RoutedPropertyChangedEventHandler<Color> ColorChanged
         {
             add { AddHandler(ColorChangedEvent, value); }
             remove { RemoveHandler(ColorChangedEvent, value); }
         }
-        
+
     }
 }
